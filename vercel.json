@@ -1,0 +1,6 @@
+{
+  "headers": [
+    { "source": "/(me|img|trip)/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }] },
+    { "source": "/(.*)\\.(mp4|webm|mp3|webp|jpg)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }] }
+  ]
+}
