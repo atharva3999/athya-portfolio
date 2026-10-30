@@ -2980,7 +2980,7 @@ nav.pill .term-btn.vp-seen .vp-ping { display: none; }
           <ul class="p3-facts"><li>Pune, India</li><li>Lead UI/UX Designer, Pardy Panda</li><li>MS UX, UT Austin</li></ul>
         </div>
         <div class="p3-studio" id="ab3Studio">
-          <div class="p3-me" id="ab3Me" aria-hidden="true"><img class="p3-me-still" src="me/paint_still.webp" alt=""></div>
+          <div class="p3-me" id="ab3Me" aria-hidden="true"><img class="p3-me-still" src="me/paint_still2.webp" alt=""></div>
           <figure class="p3-photo"><img src="atharva.jpg" alt="Atharva"><figcaption>Atharva · Pune</figcaption></figure>
         </div>
       </section>
@@ -3170,7 +3170,7 @@ nav.pill .term-btn.vp-seen .vp-ping { display: none; }
             <span class="pw-state" id="pwState"><i></i>Checking</span>
             <p>Open 10 to 1, and 4 to 7. Closed 1 to 4. Do not ask why.</p>
           </div>
-          <div class="pw-me" id="pwMe" aria-hidden="true"><span class="pw-bub" id="pwBub"></span><div class="pw-vid" id="pwVid"><img src="me/still.webp" alt=""></div></div>
+          <div class="pw-me" id="pwMe" aria-hidden="true"><span class="pw-bub" id="pwBub"></span><div class="pw-vid" id="pwVid"><img src="me/still_c2.webp" alt=""></div></div>
           <a class="pboard pw-mail" id="pwMail" href="mailto:atharvapotnis3999@gmail.com" data-say="Rule one. Full problem in the first mail.">
             <div class="pk"><span>Rule 1 · Email</span><b>✉</b></div>
             <h3>Work matters by email only.</h3>
@@ -6734,13 +6734,13 @@ document.querySelectorAll('.work3 [data-case]').forEach(a => {
   const tk = document.querySelector('#contact .c-ticker'), tw = $('#ct3Tick'); if (tk && tw) tw.appendChild(tk);
   ['about', 'contact'].forEach(id => { const sec = $('#' + id); if (sec) new MutationObserver(() => { if (!sec.hidden) sec.scrollTop = 0; }).observe(sec, { attributes: true, attributeFilter: ['hidden'] }); });
 })();
-/* About: he waves, paints the portrait into colour, gets paint on his face, laughs, and stays that way */
+/* About: he paints the portrait into colour, flicks teal paint on his own face, laughs, and stays that way */
 (function studio() {
   const box = $('#ab3Me'), sec = $('#about'), st = $('#ab3Studio'); if (!box || !sec || !st) return;
   const saf = /^((?!chrome|android|crios|fxios|edg).)*safari/i.test(navigator.userAgent), ext = saf ? 'mp4' : 'webm';
   if (saf) box.classList.add('mul');
   const still = box.querySelector('img'), mk = (n, loop) => { const v = document.createElement('video'); v.muted = true; v.playsInline = true; v.setAttribute('playsinline', ''); v.preload = 'none'; v.loop = loop; v.src = `me/${n}.${ext}`; box.appendChild(v); return v; };
-  const paint = mk('paint', false), rest = mk('paint_idle', true);
+  const paint = mk('paint2', false), rest = mk('paint_idle2', true);
   const show = e => [still, paint, rest].forEach(o => o.classList.toggle('on', o === e));
   const gs = k => st.style.setProperty('--gs', String(k));
   show(still); gs(1);
@@ -6750,7 +6750,7 @@ document.querySelectorAll('.work3 [data-case]').forEach(a => {
     paint.preload = 'auto'; rest.preload = 'auto';
     try { paint.currentTime = 0; } catch (x) {}
     paint.muted = !(snd.on && snd.unlocked); paint.volume = .85;
-    const p = paint.play(); const go = () => { show(paint); (function tick() { const t = paint.currentTime; gs(1 - clamp((t - 1.9) / 2.2, 0, 1)); if (!paint.ended) raf = requestAnimationFrame(tick); })(); };
+    const p = paint.play(); const go = () => { show(paint); (function tick() { const t = paint.currentTime; gs(1 - clamp((t - 3.2) / 1.5, 0, 1)); if (!paint.ended) raf = requestAnimationFrame(tick); })(); };
     if (p && p.then) p.then(go, () => { gs(0); }); else go();
   }
   paint.addEventListener('ended', () => { gs(0); try { rest.currentTime = 0; } catch (x) {} const p = rest.play(); const s = () => show(rest); if (p && p.then) p.then(s, s); else s(); });
@@ -6765,10 +6765,10 @@ document.querySelectorAll('.work3 [data-case]').forEach(a => {
   if (saf) wrap.classList.add('mul');
   const still = vid.querySelector('img');
   const mk = (n, loop) => { const v = document.createElement('video'); v.muted = true; v.playsInline = true; v.setAttribute('playsinline', ''); v.preload = 'none'; v.loop = loop; v.src = `me/${n}.${ext}`; vid.appendChild(v); return v; };
-  const G = {"c_hello": {"in": null, "out": 64, "peak": 2.33, "fade": 200}, "c_point": {"in": null, "out": 64, "peak": 0.83, "fade": 180}, "c_rule": {"in": null, "out": 7, "peak": 1.0, "fade": 120}, "c_more": {"in": null, "out": 7, "peak": 1.0, "fade": 120}};
-  const idle = mk('idle', true), V = {}; Object.keys(G).forEach(n => { V[n] = mk(n, false); });
+  const G = {"c2_hello": {"in": null, "out": 1, "peak": 1.08, "fade": 200}, "c2_point": {"in": null, "out": 1, "peak": 0.42, "fade": 160}, "c2_rule": {"in": null, "out": 1, "peak": 0.38, "fade": 160}, "c2_more": {"in": null, "out": 1, "peak": 0.38, "fade": 160}, "c2_watch": {"in": null, "out": 1, "peak": 0.6, "fade": 160}};
+  const idle = mk('c2_idle', true), V = {}; Object.keys(G).forEach(n => { V[n] = mk(n, false); });
   const all = [still, idle, ...Object.values(V)];
-  const FPS = 24, LOOP = 68, reduce = false;                    // he always plays
+  const FPS = 24, LOOP = 56, reduce = false;                    // he always plays
   let cur = still, busy = false, bubT = 0, greeted = false, pending = null;
   function show(e, fade) {
     const prev = cur; cur = e;
@@ -6816,7 +6816,7 @@ document.querySelectorAll('.work3 [data-case]').forEach(a => {
         e.muted = !(snd.on && snd.unlocked); e.volume = .8;
         swapTo(e, g.fade, idle);
         let lit = false;
-        (function peak() { if (lit) return; if (e.currentTime >= g.peak - .05 || e.ended) { lit = true; if (board) lightUp(board, line); } else requestAnimationFrame(peak); })();
+        (function peak() { if (lit) return; if (e.currentTime >= g.peak - .05 || e.ended) { lit = true; if (board) lightUp(board, line); else if (line) say(line); } else requestAnimationFrame(peak); })();
         e.onended = () => { busy = false; toIdle(g.out, 110); if (pending) { const q = pending; pending = null; setTimeout(() => gesture(q[0], q[1], q[2]), 520); } };
       } else requestAnimationFrame(wait);
     })();
@@ -6827,73 +6827,33 @@ document.querySelectorAll('.work3 [data-case]').forEach(a => {
     if (line) say(line);
     try { sfx.tactile(); } catch (x) {}
   }
-  const MOVE = { 'pw-head': 'c_rule', 'pw-free': 'c_rule', 'pw-time': 'c_more', 'pw-cv': 'c_more' };
+  const MOVE = { 'pw-head': 'c2_rule', 'pw-free': 'c2_rule', 'pw-time': 'c2_watch', 'pw-cv': 'c2_more', 'pw-chat': 'c2_more' };
   let lastPick = 0;
   document.querySelectorAll('#pw .pboard').forEach(b => {
-    const n = Object.keys(MOVE).find(c => b.classList.contains(c)); const move = n ? MOVE[n] : 'c_point';
+    const n = Object.keys(MOVE).find(c => b.classList.contains(c)); const move = n ? MOVE[n] : 'c2_point';
     const pick = () => { if (performance.now() - lastPick < 1600) return; lastPick = performance.now(); lastAct = lastPick; gesture(move, b, b.dataset.say); };
     b.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') pick(); });
     b.addEventListener('focusin', pick);
     b.addEventListener('click', pick);
   });
-  /* the climb. The clip was shot with a green block beside him; the LinkedIn board stands in for that block.
-     He is nudged so the block lands exactly on the board's top edge, and the clip is laid over the wall at his size. */
-  const pw = $('#pw'), perch = document.querySelector('#pw .pw-in');
-  const climb = document.createElement('video'); climb.className = 'pw-climb' + (saf ? ' mul' : ''); climb.muted = true; climb.playsInline = true; climb.setAttribute('playsinline', ''); climb.setAttribute('aria-hidden', 'true'); climb.preload = 'none'; climb.src = `me/c_climb.${ext}`;
-  if (pw) pw.appendChild(climb);
-  let canClimb = false, lastAct = performance.now(), lastClimb = 0;
-  function fit() {
-    wrap.style.translate = '';
-    if (!pw || !perch || innerWidth <= 1100 || sec.hidden) { canClimb = false; return; }
-    const P = pw.getBoundingClientRect(), Vr = vid.getBoundingClientRect(), B = perch.getBoundingClientRect(); if (!Vr.height) { canClimb = false; return; }
-    const vs = Vr.height / 540, k = 458 * vs / 493;                  // idle frame 960x540 shown by height; his body is 458 px there and 493 px in the clip
-    const feet = Vr.top + 509 * vs, cx = Vr.left + (Vr.width - 960 * vs) / 2 + 469.5 * vs;
-    const L = cx - 707 * k, T = feet - 520 * k;                      // clip origin that puts him exactly where the idle stands
-    const dx = (B.right - 6) - (L + 544 * k), dy = (B.top + 4) - (T + 310 * k);   // then move both so the block's top right sits on the board
-    if (Math.abs(dx) > 170 || Math.abs(dy) > 130) { canClimb = false; return; }
-    canClimb = true;
-    wrap.style.translate = `${dx.toFixed(1)}px ${dy.toFixed(1)}px`;
-    Object.assign(climb.style, { left: (L + dx - P.left).toFixed(1) + 'px', top: (T + dy - P.top).toFixed(1) + 'px', width: (960 * k).toFixed(1) + 'px', height: (540 * k).toFixed(1) + 'px' });
-  }
-  addEventListener('resize', () => { if (!busy) fit(); });
-  function climbUp() {
-    if (!canClimb || busy || cur !== idle || sec.hidden || document.hidden) return false;
-    busy = true; lastClimb = performance.now(); fit(); if (!canClimb) { busy = false; return false; }
-    climb.preload = 'auto';
-    try { if (climb.currentTime > .02) climb.currentTime = 0; } catch (x) {}
-    let shown = false;
-    const go = () => { if (shown) return; shown = true; climb.classList.add('on'); vid.style.opacity = '0'; setTimeout(() => idle.pause(), 200); };
-    if (climb.requestVideoFrameCallback) climb.requestVideoFrameCallback(go); else climb.addEventListener('playing', go, { once: true });
-    const p = climb.play(); if (p && p.catch) p.catch(() => { busy = false; climb.classList.remove('on'); vid.style.opacity = ''; });
-    const lines = [[3.6, 'Better view from up here.'], [7.1, 'Okay. This was a bad idea.'], [9.1, 'Nailed it.']]; let li = 0;
-    (function tick() { if (!busy) return; while (li < lines.length && climb.currentTime >= lines[li][0]) { say(lines[li++][1]); try { sfx.tactile(); } catch (x) {} } if (!climb.ended) requestAnimationFrame(tick); })();
-    climb.onended = () => {
-      let back = false;
-      const land = () => { if (back) return; back = true; show(idle, 0); vid.style.opacity = ''; requestAnimationFrame(() => climb.classList.remove('on')); busy = false; lastAct = performance.now();
-        if (pending) { const q = pending; pending = null; setTimeout(() => gesture(q[0], q[1], q[2]), 400); } };
-      try { idle.currentTime = 40.5 / FPS; } catch (x) {}
-      const pl = idle.play(); if (idle.requestVideoFrameCallback) idle.requestVideoFrameCallback(() => land()); else idle.addEventListener('playing', land, { once: true });
-      if (pl && pl.catch) pl.catch(land); setTimeout(land, 400);
-    };
-    return true;
-  }
-  // he climbs when the wall has been quiet for a while: once early in a visit, then at most every 45 s
+  /* when the wall has been quiet for a while he checks his watch: once early in a visit, then at most every 45 s */
+  let lastAct = performance.now(), lastNudge = 0;
   setInterval(() => {
-    if (sec.hidden || busy || cur !== idle || !greeted) return;
-    const q = performance.now() - lastAct, since = performance.now() - lastClimb;
-    if (q > 9000 && since > 45000) climbUp();
+    if (sec.hidden || busy || cur !== idle || !greeted || document.hidden) return;
+    const q = performance.now() - lastAct, since = performance.now() - lastNudge;
+    if (q > 9000 && since > 45000) { lastNudge = performance.now(); gesture('c2_watch', null, 'Clock is ticking. Pick a board.'); }
   }, 1000);
   function wake() {
-    lastAct = performance.now(); setTimeout(fit, 120);
+    lastAct = performance.now();
     if (reduce) { show(still, 0); return; }
     idle.preload = 'auto'; Object.values(V).forEach(e => { e.preload = 'auto'; try { e.load(); } catch (x) {} });
     busy = false; cur = still;
     let went = false; const go = () => { if (went) return; went = true; swapTo(idle, 0, null);
-      if (!greeted) { greeted = true; setTimeout(() => gesture('c_hello', document.querySelector('#pw .pw-head'), "Namaskar. Read the notice first. Then pick a board."), 700); } };
+      if (!greeted) { greeted = true; setTimeout(() => gesture('c2_hello', document.querySelector('#pw .pw-head'), "Namaskar. Read the notice first. Then pick a board."), 700); } };
     idle.addEventListener('seeked', go, { once: true }); setTimeout(go, 350);
     try { idle.currentTime = .5 / FPS; } catch (x) { go(); }
   }
-  new MutationObserver(() => { if (sec.hidden) { idle.pause(); Object.values(V).forEach(e => e.pause()); climb.pause(); climb.classList.remove('on'); vid.style.opacity = ''; busy = false; } else setTimeout(wake, 300); }).observe(sec, { attributes: true, attributeFilter: ['hidden'] });
+  new MutationObserver(() => { if (sec.hidden) { idle.pause(); Object.values(V).forEach(e => e.pause()); busy = false; } else setTimeout(wake, 300); }).observe(sec, { attributes: true, attributeFilter: ['hidden'] });
   if (!sec.hidden) wake();
 })();
 /* the badge's lanyard reaches up to the hero's top grid line; it swings once the site opens */
